@@ -1,0 +1,10 @@
+name: tdpo
+k: 3
+beta: 0.5
+alpha: 1.0  
+high_reward: 4
+low_reward: 1.5
+threshold: 2.5
+beta_t: true
+u_alpha: 1.5
+l_alpha: 0.75

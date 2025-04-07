@@ -1,0 +1,52 @@
+seed: 1
+function: eval
+exp_name: tldr_odpo_0.1_o
+batch_size: 32
+temperature: 1
+topp: 1.0
+eval_batch_size: 32
+debug: false
+fsdp_port: null
+datasets:
+- tldr
+wandb:
+  enabled: true
+  entity: null
+  project: direct-preference-optimization
+local_dirs:
+- /scr-ssd
+- /scr
+- .cache
+sample_during_eval: false
+n_eval_model_samples: 512
+do_first_eval: true
+local_run_dir: odpo
+lr: 1.0e-06
+gradient_accumulation_steps: 1
+max_grad_norm: 10.0
+max_length: 1024
+max_prompt_length: 256
+n_epochs: 1
+n_examples: 10000
+n_eval_examples: 512
+trainer: BasicTrainer
+optimizer: RMSprop
+warmup_steps: 150
+activation_checkpointing: false
+eval_every: 992
+minimum_log_interval_secs: 1.0
+model:
+  name_or_path: gpt2-large
+  tokenizer_name_or_path: null
+  archive: tldr_odpo_10000_0.1/policy.pt
+  ref_archive: tldr_sft_20000_0/policy.pt
+  block_name: GPT2Block
+  policy_dtype: float32
+  fsdp_policy_mp: null
+  reference_dtype: float16
+loss:
+  name: odpo
+  k: 3
+  beta: 0.1
+  alpha: 1.0
+  ratio: false
