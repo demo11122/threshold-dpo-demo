@@ -1,0 +1,16 @@
+packaging==23.0
+diffusers==0.21.2
+torchvision==0.15.2
+huggingface-hub==0.25.0
+accelerate==0.20.2
+transformers==4.30.2
+datasets
+ftfy
+tensorboard
+Jinja2
+bitsandbytes
+xformers==0.0.22
+hpsv2
+openai_clip==1.0.1
+ml_collections
+wandb
